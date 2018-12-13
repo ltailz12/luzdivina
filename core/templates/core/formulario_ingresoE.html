@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" ></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+        body {
+                background-image: url("http://www.lci.edu.co/~/media/images/responsive/colombia/escuelas/grafico_fotografia/fotografia/content_fotoboda.ashx");
+        } 
+         
+        </style>
+<body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-darl">
+                <a class="navbar-brand" href="{% url 'home' %}">Cerra Session</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+           
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         Evento
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'formularioEvento' %}">Agregar Evento</a>
+                        <a class="dropdown-item" href="{% url 'ListadoEvento' %}">Listar Evento</a>
+                      
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Agente Pastorales
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'formularioAgente' %}">Agregar Agente Pastorales</a>
+                        <a class="dropdown-item" href="{% url 'ListadoAgente' %}">Listar Agente Pastorales</a>
+                      </div>
+                    </li>
+                   
+                </div>
+              </nav>
+              </section>
+            </header>
+    <h1>Ingreso de Eventos </h1>
+        <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="nombre">Nombre Evento</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="ingrese nombre">
+                </div>
+                <div class="form-group">
+                        <label for="tipo" >Seleccione Tipo Evento:</label>
+                        <select class="form-control" id="tipo" name="tipo">
+                            <option >Seleccione</option>
+                            
+                                <option value="Boda" >Boda</option>
+                                <option value="Comunion" >Comunion</option>
+                                <option value="Bautizo" >Bautizo</option>
+                           
+                        </select>
+                    </div>
+                <div class="form-group">
+                    <label for="fecha">Fecha Evento </label>
+                    <input type="date" class="form-control" id="fecha" name="fecha" placeholder="ingrese fecha Evento">
+                </div>
+                <div class="form-group">
+                    <label for="hora">Hora Evento</label>
+                    <input type="text" class="form-control" id="hora" name="hora" placeholder="ingrese Hora Evento">
+                </div>
+                <div class="form-group">
+                        <label for="comunidad">Seleccione Tipo Comunidad:</label>
+                        <select class="form-control" id="comunidad" name="comunidad">
+                            <option>Seleccione</option>
+                            {% for dato in tipos %}
+                                <option value="{{dato.id}}">{{dato.nombre}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+              
+                
+                <button type="submit" class="btn btn-primary">Agregar</button>
+                <h1>{{mensaje}}</h1>
+            
+            </form>
+</body>
+</html>
+

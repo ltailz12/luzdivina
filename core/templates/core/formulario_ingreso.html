@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" ></script>
+<style>
+    body {
+            background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/50/Cunducacan.Iglesia.jpg");
+    } 
+     
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Comunidades</title>
+</head>
+<body >
+        <section id="stuck_container">
+                <!--==============================
+                            Stuck menu
+                =================================-->
+                <nav class="navbar navbar-expand-lg navbar-dark bg-darl">
+                  <a class="navbar-brand" href="#">Inicio</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Comunidad
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="{% url 'formulario' %}">Agregar Comunidad</a>
+                      <a class="dropdown-item" href="{% url 'ListadoComunidad' %}">Listar Comunidad</a>
+                      
+                  </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           Evento
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="{% url 'formularioEvento' %}">Agregar Evento</a>
+                          <a class="dropdown-item" href="{% url 'ListadoEvento' %}">Listar Evento</a>
+                        
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Agente Pastorales
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="{% url 'formularioAgente' %}">Agregar Agente Pastorales</a>
+                          <a class="dropdown-item" href="{% url 'ListadoAgente' %}">Listar Agente Pastorales</a>
+                        </div>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Solicitudes
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="{% url 'formularioSolicitud' %}">Agregar Solicitud</a>
+                          <a class="dropdown-item" href="{% url 'ListadoSolicitud' %}">Listar Solicitud</a>
+                          
+                        </div>
+                      </li>
+                  </div>
+                </nav>
+                </section>
+              </header>
+    <h1>Ingreso de Comunidades </h1>
+        <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="nombre">Nombre Comunidad</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="ingrese nombre">
+                </div>
+                <div class="form-group">
+                    <label for="Ubicacion">Ubicacion</label>
+                    <input type="text" class="form-control" id="ubicacion" name="ubicacion" placeholder="ingrese ubicacion ">
+                </div>
+                <div class="form-group">
+                    <label for="nombreCordinadores">Nombres Cordinadores </label>
+                    <input type="text" class="form-control" id="nombreCordinadores" name="nombreCordinadores" placeholder="ingrese Nombres nombre Cordinadores">
+                </div>
+                <div class="form-group">
+                    <label for="nombresAgentesPastorales">Nombres Agentes Pastorales</label>
+                    <input type="text" class="form-control" id="nombresAgentesPastorales" name="nombresAgentesPastorales" placeholder="ingrese Nombre agentes pastorales">
+                </div>
+                <div class="form-group">
+                    <label for="nombresMisnistroComunion">Nombre Ministro Comunion:</label>
+                    <input type="text" class="form-control" id="nombresMisnistroComunion" name="nombresMisnistroComunion" placeholder="ingrese nombre ministro Comunion">
+                </div>
+              
+                
+                <button type="submit" class="btn btn-primary">Agregar</button>
+                <h1>{{mensaje}}</h1>
+                <a href="{% url 'home' %}"> Volver </a>
+            </form>
+</body>
+</html>
+

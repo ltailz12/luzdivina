@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" ></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body {
+            background-image: url("https://upload.wikimedia.org/wikipedia/commons/b/b4/Iglesia_de_La_Asunci%C3%B3n_de_Villamelendro_de_Valdavia_-_Padres_de_la_Iglesia_01.jpg")
+    } 
+     
+    </style>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-darl">
+        <a class="navbar-brand" href="{% url 'home' %}">Inicio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <li class="nav-item dropdown">
+          <a style="color: white" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Comunidad
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'formulario' %}">Agregar Comunidad</a>
+            <a class="dropdown-item" href="{% url 'ListadoComunidad' %}">Listar Comunidad</a>
+            
+        </li>
+            <li class="nav-item dropdown">
+              <a style="color: white" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Evento
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'formularioEvento' %}">Agregar Evento</a>
+                <a class="dropdown-item" href="{% url 'ListadoEvento' %}">Listar Evento</a>
+              
+            </li>
+            <li class="nav-item dropdown">
+              <a style="color: white" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Agente Pastorales
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'formularioAgente' %}">Agregar Agente Pastorales</a>
+                <a class="dropdown-item" href="{% url 'ListadoAgente' %}">Listar Agente Pastorales</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a  style="color: white" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Solicitudes
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'formularioSolicitud' %}">Agregar Solicitud</a>
+                <a class="dropdown-item" href="{% url 'ListadoSolicitud' %}">Listar Solicitud</a>
+                
+              </div>
+            </li>
+        </div>
+      </nav>
+      </section>
+        <h1 style="color: white">Listado de Agente Pastoral</h1>
+        <hr>
+        
+              <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre Agente Pastoral</th>
+                        <th scope="col">Apellido Agente Pastoral</th>
+                        <th scope="col">Edad </th>
+                        <th scope="col">Comunidad </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for fila in listaAgente %}
+                      <tr>
+                        <th scope="row" style="color: white">{{fila.id}}</th>
+                        <td style="color: white">{{fila.nombre}}</td>
+                        <td style="color: white">{{fila.apellido}}</td>
+                        <td style="color: white">{{fila.edad}}</td>
+                        <td style="color: white">{{fila.comu}}</td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                    </table>
+                    
+    
+       <br>
+      
+    
+        
+
+</body>
+</html>

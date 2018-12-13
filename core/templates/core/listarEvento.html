@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" ></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+                background-image: url("https://www.carolbravo.com/wp-content/uploads/Fotografos-bautizos-madrid-00.jpg")
+        } 
+         
+        </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-darl">
+        <a class="navbar-brand" href="{% url 'home' %}">Inicio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Comunidad
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'formulario' %}">Agregar Comunidad</a>
+            <a class="dropdown-item" href="{% url 'ListadoComunidad' %}">Listar Comunidad</a>
+            
+        </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Evento
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'formularioEvento' %}">Agregar Evento</a>
+                <a class="dropdown-item" href="{% url 'ListadoEvento' %}">Listar Evento</a>
+              
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Agente Pastorales
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'formularioAgente' %}">Agregar Agente Pastorales</a>
+                <a class="dropdown-item" href="{% url 'ListadoAgente' %}">Listar Agente Pastorales</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Solicitudes
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'formularioSolicitud' %}">Agregar Solicitud</a>
+                <a class="dropdown-item" href="{% url 'ListadoSolicitud' %}">Listar Solicitud</a>
+                
+              </div>
+            </li>
+        </div>
+      </nav>
+      </section>
+        <h1>Listado de Evento</h1>
+        <hr>
+        
+              <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre Evento</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Fecha </th>
+                        <th scope="col">Hora </th>
+                        <th scope="col">Comunidad </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for fila in listaEvento %}
+                      <tr>
+                        <th scope="row">{{fila.id}}</th>
+                        <td >{{fila.nombre}}</td>
+                        <td>{{fila.tipo}}</td>
+                        <td>{{fila.fecha}}</td>
+                        <td style="color: white">{{fila.hora}}</td>
+                        <td style="color: white">{{fila.comunidad}}</td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                    </table>
+                    
+    
+       <br>
+      
+    
+        <a href="{% url 'home' %}"> Volver </a>
+
+</body>
+</html>

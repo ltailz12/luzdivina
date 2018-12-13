@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" ></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            body {
+                    background-image: url("https://bibliaycomunicacion.files.wordpress.com/2013/02/biblia2.jpg");
+            } 
+             
+            </style>
+</head>
+<body>
+        <section id="stuck_container">
+                <!--==============================
+                            Stuck menu
+                =================================-->
+                <nav class="navbar navbar-expand-lg navbar-dark bg-darl">
+                  <a class="navbar-brand" href="{% url 'home' %}">Inicio</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Comunidad
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="{% url 'formulario' %}">Agregar Comunidad</a>
+                      <a class="dropdown-item" href="{% url 'ListadoComunidad' %}">Listar Comunidad</a>
+                      
+                  </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           Evento
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="{% url 'formularioEvento' %}">Agregar Evento</a>
+                          <a class="dropdown-item" href="{% url 'ListadoEvento' %}">Listar Evento</a>
+                        
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Agente Pastorales
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="{% url 'formularioAgente' %}">Agregar Agente Pastorales</a>
+                          <a class="dropdown-item" href="{% url 'ListadoAgente' %}">Listar Agente Pastorales</a>
+                        </div>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Solicitudes
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="{% url 'formularioSolicitud' %}">Agregar Solicitud</a>
+                          <a class="dropdown-item" href="{% url 'ListadoSolicitud' %}">Listar Solicitud</a>
+                          
+                        </div>
+                      </li>
+                  </div>
+                </nav>
+                </section>
+    <h1 style="color: aqua">Ingreso de Solicitudes </h1>
+        <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="sacramento" style="color: aqua">Seleccione Tipo Sacramento:</label>
+                    <select class="form-control" id="sacramento" name="sacramento">
+                        <option style="color: aqua">Seleccione</option>
+                        
+                            <option value="Boda" style="color: aqua">Boda</option>
+                            <option value="Comunion" style="color: aqua">Comunion</option>
+                            <option value="Bautizo" style="color: aqua">Bautizo</option>
+                       
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="nombreP" style="color: aqua">Nombre Padre</label>
+                    <input type="text" class="form-control" id="nombreP" name="nombreP" placeholder="ingrese Nombre Padre ">
+                </div>
+                <div class="form-group">
+                    <label for="apellidoP" style="color: aqua">Apellido Padre </label>
+                    <input type="text" class="form-control" id="apellidoP" name="apellidoP" placeholder="ingrese Apellido Padre">
+                </div>
+                <div class="form-group">
+                    <label for="nombreH" style="color: aqua">Nombre Hijo</label>
+                    <input type="text" class="form-control" id="nombreH" name="nombreH" placeholder="ingrese Nombre Hijo">
+                </div>
+                <div class="form-group">
+                    <label for="apellidoH" style="color: aqua">Apellido Hijo:</label>
+                    <input type="text" class="form-control" id="apellidoH" name="apellidoH" placeholder="ingrese apellido Hijo">
+                </div>
+              
+                
+                <button type="submit" class="btn btn-primary">Agregar</button>
+                <h1>{{mensaje}}</h1>
+              
+            </form>
+
+</body>
+
+</html>
